@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATA PELANGGAN - UNIT KONSULTASI DAN KIOSK CDN IPOH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .header-bg {
+      background-color: #1e40af;
+    }
+    .footer-text {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <!-- Header Section -->
+    <div class="header-bg text-white p-4 text-center">
+      <h1 class="text-2xl font-bold">DATA PELANGGAN</h1>
+      <p class="text-sm">UNIT KONSULTASI DAN KIOSK CDN IPOH</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="p-6">
+      <form id="dataForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Date and Time Inputs -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Tarikh</label>
+          <input type="date" name="tarikh" id="currentDate" class="p-2 border rounded w-full" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Masa</label>
+          <input type="time" name="masa" id="currentTime" class="p-2 border rounded w-full" required>
+        </div>
+        
+        <input type="text" name="namaPelanggan" placeholder="Nama Pelanggan" class="p-2 border rounded" required>
+        <input type="text" name="namaSyarikat" placeholder="Nama Syarikat" class="p-2 border rounded">
+        
+        <!-- Kaedah Dropdown -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Kaedah</label>
+          <select name="kaedah" class="p-2 border rounded w-full">
+            <option value="">Pilih Kaedah</option>
+            <option value="Bersemuka">Bersemuka</option>
+            <option value="Telefon">Telefon</option>
+            <option value="Emel">Emel</option>
+            <option value="Surat">Surat</option>
+          </select>
+        </div>
+        
+        <input type="text" name="telefonEmel" placeholder="No. Telefon / Emel" class="p-2 border rounded">
+        
+        <!-- Pegawai Dropdown -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Pegawai</label>
+          <select name="pegawai" class="p-2 border rounded w-full">
+            <option value="">Pilih Pegawai</option>
+            <option value="Santhanavel Ramesh A/L Subramaniam">Santhanavel Ramesh A/L Subramaniam</option>
+            <option value="Mohamed Inmran bin Sahul Hamid">Mohamed Inmran bin Sahul Hamid</option>
+            <option value="Haziq bin Zakaria">Haziq bin Zakaria</option>
+            <option value="Mohd Nazri bin Mohd Noh">Mohd Nazri bin Mohd Noh</option>
+            <option value="Siti Bahayah binti Baharom">Siti Bahayah binti Baharom</option>
+            <option value="Nur Hawari binti Mohd Johar @ Mohd Johan">Nur Hawari binti Mohd Johar @ Mohd Johan</option>
+            <option value="Noor Umaira binti Md Yusop">Noor Umaira binti Md Yusop</option>
+            <option value="Siti Zulaikha bint Eroi">Siti Zulaikha bint Eroi</option>
+            <option value="Umum">Umum</option>
+          </select>
+        </div>
+        
+        <div class="col-span-1 md:col-span-2 space-y-4">
+          <!-- Perkara Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Perkara</label>
+            <select name="perkara" class="p-2 border rounded w-full">
+              <option value="">Pilih Perkara</option>
+              <option value="Cukai Jualan">Cukai Jualan</option>
+              <option value="Cukai Perkhidmatan">Cukai Perkhidmatan</option>
+              <option value="GST">GST</option>
+              <option value="Cukai Pelancongan">Cukai Pelancongan</option>
+              <option value="Duti Import">Duti Import</option>
+              <option value="LMW">LMW</option>
+              <option value="FIZ">FIZ</option>
+              <option value="ABT">ABT</option>
+              <option value="Lain-Lain">Lain-Lain</option>
+            </select>
+          </div>
+          
+          <!-- Isu Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Isu</label>
+            <select name="isu" class="p-2 border rounded w-full">
+              <option value="">Pilih Isu</option>
+              <option value="Aduan/Lain-Lain">Aduan/Lain-Lain</option>
+              <option value="Audit">Audit</option>
+              <option value="B2B Exemption">B2B Exemption</option>
+              <option value="BOD">BOD</option>
+              <option value="Pembatalan">Pembatalan</option>
+              <option value="Pembatalan Pengecualian">Pembatalan Pengecualian</option>
+              <option value="Penalti">Penalti</option>
+              <option value="Pendaftaran">Pendaftaran</option>
+              <option value="Pengecualian Cukai">Pengecualian Cukai</option>
+              <option value="Penukaran Alamat">Penukaran Alamat</option>
+              <option value="Penukaran Emel">Penukaran Emel</option>
+              <option value="Penyata">Penyata</option>
+              <option value="Penyata SST-02 Pembayaran">Penyata SST-02 Pembayaran</option>
+              <option value="Penyata SST-02 Penghantaran">Penyata SST-02 Penghantaran</option>
+              <option value="Pertanyaan Nilai Cukai">Pertanyaan Nilai Cukai</option>
+              <option value="Refund / Drawback">Refund / Drawback</option>
+              <option value="Remisi">Remisi</option>
+              <option value="Reset Password">Reset Password</option>
+              <option value="Senarai hitam Imigresen">Senarai hitam Imigresen</option>
+              <option value="Invoice">Invoice</option>
+            </select>
+          </div>
+          
+          <textarea name="pertanyaan" placeholder="Pertanyaan" class="p-2 border rounded w-full h-32"></textarea>
+          <textarea name="jawapan" placeholder="Jawapan" class="p-2 border rounded w-full h-32"></textarea>
+        </div>
+        
+        <button type="submit" class="bg-blue-600 text-white p-2 rounded col-span-1 md:col-span-2 hover:bg-blue-700 transition flex items-center justify-center">
+          <span id="submitText">Hantar</span>
+          <span id="spinner" class="loading-spinner"></span>
+        </button>
+      </form>
+
+      <!-- Data List Section -->
+      <div id="dataList" class="mt-6 space-y-4">
+        <h2 class="text-xl font-semibold border-b pb-2">@hak milik UKK 2025</h2>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('dataForm');
+    const dataList = document.getElementById('dataList');
+    const submitText = document.getElementById('submitText');
+    const spinner = document.getElementById('spinner');
+    
+    // Your Google Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxS0s4T7NptBT2Fd_p1qXPNIlTdNGMCTmwoy496cA7Z9U3NgYNOslZIpf7Hpu7sPY7R/exec';
+
+    // Function to get current Malaysia time
+    function getMalaysiaDateTime() {
+      const now = new Date();
+      const offsetMs = 8 * 60 * 60 * 1000; // UTC+8 for Malaysia
+      return new Date(now.getTime() + offsetMs);
+    }
+
+    // Format date as YYYY-MM-DD
+    function formatDate(date) {
+      const d = new Date(date);
+      let month = '' + (d.getMonth() + 1);
+      let day = '' + d.getDate();
+      const year = d.getFullYear();
+
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+
+      return [year, month, day].join('-');
+    }
+
+    // Format time as HH:MM
+    function formatTime(date) {
+      const d = new Date(date);
+      let hours = '' + d.getHours();
+      let minutes = '' + d.getMinutes();
+
+      if (hours.length < 2) hours = '0' + hours;
+      if (minutes.length < 2) minutes = '0' + minutes;
+
+      return [hours, minutes].join(':');
+    }
+
+    // Format display datetime
+    function formatDisplayDateTime(dateStr, timeStr) {
+      const date = new Date(dateStr + 'T' + timeStr);
+      return date.toLocaleString('ms-MY', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    // Set current Malaysia date and time
+    window.addEventListener('DOMContentLoaded', () => {
+      const malaysiaTime = getMalaysiaDateTime();
+      document.getElementById('currentDate').value = formatDate(malaysiaTime);
+      document.getElementById('currentTime').value = formatTime(malaysiaTime);
+    });
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Show loading spinner
+      submitText.textContent = 'Menghantar...';
+      spinner.style.display = 'inline-block';
+      
+      // Disable submit button
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        // Prepare form data
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => (data[key] = value));
+        
+        // Send to Google Sheets
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        
+        if (response.ok) {
+          // Create display entry
+          const entry = document.createElement('div');
+          entry.className = 'bg-gray-50 border rounded p-4 mb-4';
+          entry.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <p><strong>Tarikh & Masa:</strong> ${formatDisplayDateTime(data.tarikh, data.masa)}</p>
+              <p><strong>Nama Pelanggan:</strong> ${data.namaPelanggan}</p>
+              <p><strong>Nama Syarikat:</strong> ${data.namaSyarikat || '-'}</p>
+              <p><strong>Kaedah:</strong> ${data.kaedah || '-'}</p>
+              <p><strong>No. Telefon/Emel:</strong> ${data.telefonEmel || '-'}</p>
+              <p><strong>Pegawai:</strong> ${data.pegawai || '-'}</p>
+            </div>
+            <div class="mt-4 space-y-4">
+              <div class="border p-3 rounded bg-white"><strong>Perkara:</strong><br>${data.perkara || '-'}</div>
+              <div class="border p-3 rounded bg-white"><strong>Isu:</strong><br>${data.isu || '-'}</div>
+              <div class="border p-3 rounded bg-white"><strong>Pertanyaan:</strong><br>${data.pertanyaan || '-'}</div>
+              <div class="border p-3 rounded bg-white"><strong>Jawapan:</strong><br>${data.jawapan || '-'}</div>
+            </div>
+            <div class="mt-3 pt-3 border-t footer-text text-right">
+              Direkod pada: ${new Date().toLocaleString('ms-MY')}
+            </div>
+          `;
+          
+          // Add to display
+          dataList.insertBefore(entry, dataList.children[1]);
+          
+          // Reset form
+          form.reset();
+          
+          // Reset to current Malaysia time
+          const malaysiaTime = getMalaysiaDateTime();
+          document.getElementById('currentDate').value = formatDate(malaysiaTime);
+          document.getElementById('currentTime').value = formatTime(malaysiaTime);
+          
+          alert('Data berjaya dihantar ke Google Sheets!');
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Ralat: Data tidak berjaya dihantar. Sila cuba lagi.');
+      } finally {
+        // Reset button state
+        submitText.textContent = 'Hantar';
+        spinner.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
