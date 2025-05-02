@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATA PELANGGAN - UNIT KONSULTASI DAN KIOSK CDN IPOH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malay:wght@400;700&display=swap');
+    body {
+      font-family: 'Noto Sans Malay', sans-serif;
+    }
+    .header {
+      background-color: #1e3a8a;
+      color: white;
+      border-radius: 0.75rem 0.75rem 0 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md">
+    <!-- Updated Header -->
+    <div class="header p-6 text-center">
+      <h1 class="text-2xl font-bold">DATA PELANGGAN</h1>
+      <p class="text-sm mt-1">UNIT KONSULTASI DAN KIOSK CDN IPOH</p>
+    </div>
+
+    <div class="p-6">
+      <form id="dataForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Date and Time Inputs -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Tarikh</label>
+          <input type="date" name="tarikh" id="currentDate" class="p-2 border rounded w-full" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Masa</label>
+          <input type="time" name="masa" id="currentTime" class="p-2 border rounded w-full" required>
+        </div>
+        
+        <input type="text" name="namaPelanggan" placeholder="Nama Pelanggan" class="p-2 border rounded" required>
+        <input type="text" name="namaSyarikat" placeholder="Nama Syarikat" class="p-2 border rounded">
+        
+        <!-- Kaedah Dropdown -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Kaedah</label>
+          <select name="kaedah" class="p-2 border rounded w-full">
+            <option value="">Pilih Kaedah</option>
+            <option value="Bersemuka">Bersemuka</option>
+            <option value="Telefon">Telefon</option>
+            <option value="Emel">Emel</option>
+            <option value="Surat">Surat</option>
+          </select>
+        </div>
+        
+        <input type="text" name="telefonEmel" placeholder="No. Telefon / Emel" class="p-2 border rounded">
+        
+        <!-- Pegawai Dropdown -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Pegawai</label>
+          <select name="pegawai" class="p-2 border rounded w-full">
+            <option value="">Pilih Pegawai</option>
+            <option value="Santhanavel Ramesh A/L Subramaniam">Santhanavel Ramesh A/L Subramaniam</option>
+            <option value="Mohamed Inmran bin Sahul Hamid">Mohamed Inmran bin Sahul Hamid</option>
+            <option value="Haziq bin Zakaria">Haziq bin Zakaria</option>
+            <option value="Mohd Nazri bin Mohd Noh">Mohd Nazri bin Mohd Noh</option>
+            <option value="Siti Bahayah binti Baharom">Siti Bahayah binti Baharom</option>
+            <option value="Nur Hawari binti Mohd Johar @ Mohd Johan">Nur Hawari binti Mohd Johar @ Mohd Johan</option>
+            <option value="Noor Umaira binti Md Yusop">Noor Umaira binti Md Yusop</option>
+            <option value="Siti Zulaikha bint Eroi">Siti Zulaikha bint Eroi</option>
+            <option value="Umum">Umum</option>
+          </select>
+        </div>
+        
+        <div class="col-span-1 md:col-span-2 space-y-4">
+          <!-- Perkara Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Perkara</label>
+            <select name="perkara" class="p-2 border rounded w-full">
+              <option value="">Pilih Perkara</option>
+              <option value="Cukai Jualan">Cukai Jualan</option>
+              <option value="Cukai Perkhidmatan">Cukai Perkhidmatan</option>
+              <option value="GST">GST</option>
+              <option value="Cukai Pelancongan">Cukai Pelancongan</option>
+              <option value="Duti Import">Duti Import</option>
+              <option value="LMW">LMW</option>
+              <option value="FIZ">FIZ</option>
+              <option value="ABT">ABT</option>
+              <option value="Lain-Lain">Lain-Lain</option>
+            </select>
+          </div>
+          
+          <!-- Isu Dropdown -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Isu</label>
+            <select name="isu" class="p-2 border rounded w-full">
+              <option value="">Pilih Isu</option>
+              <option value="Aduan/Lain-Lain">Aduan/Lain-Lain</option>
+              <option value="Audit">Audit</option>
+              <option value="B2B Exemption">B2B Exemption</option>
+              <option value="BOD">BOD</option>
+              <option value="Pembatalan">Pembatalan</option>
+              <option value="Pembatalan Pengecualian">Pembatalan Pengecualian</option>
+              <option value="Penalti">Penalti</option>
+              <option value="Pendaftaran">Pendaftaran</option>
+              <option value="Pengecualian Cukai">Pengecualian Cukai</option>
+              <option value="Penukaran Alamat">Penukaran Alamat</option>
+              <option value="Penukaran Emel">Penukaran Emel</option>
+              <option value="Penyata">Penyata</option>
+              <option value="Penyata SST-02 Pembayaran">Penyata SST-02 Pembayaran</option>
+              <option value="Penyata SST-02 Penghantaran">Penyata SST-02 Penghantaran</option>
+              <option value="Pertanyaan Nilai Cukai">Pertanyaan Nilai Cukai</option>
+              <option value="Refund / Drawback">Refund / Drawback</option>
+              <option value="Remisi">Remisi</option>
+              <option value="Reset Password">Reset Password</option>
+              <option value="Senarai hitam Imigresen">Senarai hitam Imigresen</option>
+              <option value="Invoice">Invoice</option>
+            </select>
+          </div>
+          
+          <textarea name="pertanyaan" placeholder="Pertanyaan" class="p-2 border rounded w-full h-32"></textarea>
+          <textarea name="jawapan" placeholder="Jawapan" class="p-2 border rounded w-full h-32"></textarea>
+        </div>
+        
+        <button type="submit" class="bg-blue-600 text-white p-2 rounded col-span-1 md:col-span-2 hover:bg-blue-700 transition">Hantar</button>
+      </form>
+
+      <div id="dataList" class="mt-6 space-y-4">
+        <h2 class="text-xl font-semibold border-b pb-2">@hak milik UKK 2025</h2>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('dataForm');
+    const dataList = document.getElementById('dataList');
+
+    // Function to get current Malaysia time
+    function getMalaysiaDateTime() {
+      const now = new Date();
+      // Malaysia is UTC+8
+      const offsetMs = 8 * 60 * 60 * 1000;
+      const malaysiaTime = new Date(now.getTime() + offsetMs);
+      return malaysiaTime;
+    }
+
+    // Function to format date as YYYY-MM-DD
+    function formatDate(date) {
+      const d = new Date(date);
+      let month = '' + (d.getMonth() + 1);
+      let day = '' + d.getDate();
+      const year = d.getFullYear();
+
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+
+      return [year, month, day].join('-');
+    }
+
+    // Function to format time as HH:MM
+    function formatTime(date) {
+      const d = new Date(date);
+      let hours = '' + d.getHours();
+      let minutes = '' + d.getMinutes();
+
+      if (hours.length < 2) hours = '0' + hours;
+      if (minutes.length < 2) minutes = '0' + minutes;
+
+      return [hours, minutes].join(':');
+    }
+
+    // Function to format display datetime
+    function formatDisplayDateTime(dateStr, timeStr) {
+      const date = new Date(dateStr + 'T' + timeStr);
+      return date.toLocaleString('ms-MY', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    // Set current Malaysia date and time
+    window.addEventListener('DOMContentLoaded', () => {
+      const malaysiaTime = getMalaysiaDateTime();
+      document.getElementById('currentDate').value = formatDate(malaysiaTime);
+      document.getElementById('currentTime').value = formatTime(malaysiaTime);
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const entry = document.createElement('div');
+      entry.className = 'bg-gray-50 border rounded p-4';
+
+      entry.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <p><strong>Tarikh & Masa:</strong> ${formatDisplayDateTime(formData.get('tarikh'), formData.get('masa'))}</p>
+          <p><strong>Nama Pelanggan:</strong> ${formData.get('namaPelanggan')}</p>
+          <p><strong>Nama Syarikat:</strong> ${formData.get('namaSyarikat') || '-'}</p>
+          <p><strong>Kaedah:</strong> ${formData.get('kaedah') || '-'}</p>
+          <p><strong>No. Telefon / Emel:</strong> ${formData.get('telefonEmel') || '-'}</p>
+          <p><strong>Pegawai:</strong> ${formData.get('pegawai') || '-'}</p>
+        </div>
+        <div class="mt-4 space-y-4">
+          <div class="border p-3 rounded bg-white"><strong>Perkara:</strong><br>${formData.get('perkara') || '-'}</div>
+          <div class="border p-3 rounded bg-white"><strong>Isu:</strong><br>${formData.get('isu') || '-'}</div>
+          <div class="border p-3 rounded bg-white"><strong>Pertanyaan:</strong><br>${formData.get('pertanyaan') || '-'}</div>
+          <div class="border p-3 rounded bg-white"><strong>Jawapan:</strong><br>${formData.get('jawapan') || '-'}</div>
+        </div>
+        <div class="mt-3 pt-3 border-t text-sm text-gray-500 text-right">
+          ${new Date().toLocaleString('ms-MY')}
+        </div>
+      `;
+
+      dataList.insertBefore(entry, dataList.children[1]);
+      form.reset();
+      
+      // Reset to current Malaysia time
+      const malaysiaTime = getMalaysiaDateTime();
+      document.getElementById('currentDate').value = formatDate(malaysiaTime);
+      document.getElementById('currentTime').value = formatTime(malaysiaTime);
+    });
+  </script>
+</body>
+</html>
